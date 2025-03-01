@@ -1,22 +1,18 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-
-class AppColors {
-  static const Color primary = Color(0xFFFF1B6B);
-  static const Color secondary = Color(0xFFFF1B6B);
-}
+import 'colors.dart'; // Importando as cores
 
 class AppTextStyles {
   static final TextStyle title = GoogleFonts.lato(
     fontSize: 24,
     fontWeight: FontWeight.bold,
-    color: Colors.black,
+    color: AppColors.textBlack,
   );
 
   static final TextStyle body = GoogleFonts.lato(
     fontSize: 16,
     fontWeight: FontWeight.w400,
-    color: Colors.black,
+    color: AppColors.textBlack,
   );
 
   static final TextStyle button = GoogleFonts.lato(
@@ -35,4 +31,12 @@ final ThemeData appTheme = ThemeData(
     secondary: AppColors.secondary,
   ),
   textTheme: GoogleFonts.latoTextTheme(),
+  inputDecorationTheme: InputDecorationTheme(
+    filled: true,
+    fillColor: AppColors.formFieldBackground,
+    border: OutlineInputBorder(
+      borderRadius: BorderRadius.circular(10),
+      borderSide: BorderSide.none,
+    ),
+  ),
 );
