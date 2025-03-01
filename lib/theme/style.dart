@@ -1,32 +1,38 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:imc_smart/presentation/pages/home_page.dart';
 
-final theme = ThemeData(
+class AppColors {
+  static const Color primary = Color(0xFFFF1B6B);
+  static const Color secondary = Color(0xFFFF1B6B);
+}
+
+class AppTextStyles {
+  static final TextStyle title = GoogleFonts.lato(
+    fontSize: 24,
+    fontWeight: FontWeight.bold,
+    color: Colors.black,
+  );
+
+  static final TextStyle body = GoogleFonts.lato(
+    fontSize: 16,
+    fontWeight: FontWeight.w400,
+    color: Colors.black,
+  );
+
+  static final TextStyle button = GoogleFonts.lato(
+    fontSize: 16,
+    fontWeight: FontWeight.w600,
+    color: Colors.white,
+  );
+}
+
+final ThemeData appTheme = ThemeData(
   useMaterial3: true,
   colorScheme: ColorScheme.fromSeed(
     brightness: Brightness.light,
-    seedColor: const Color(0xFFFF1B6B),
-    primary: const Color(0xFFFF1B6B),
-    secondary: const Color(0xFFFF1B6B),
+    seedColor: AppColors.primary,
+    primary: AppColors.primary,
+    secondary: AppColors.secondary,
   ),
   textTheme: GoogleFonts.latoTextTheme(),
 );
-
-void main() {
-  runApp(const IMCSmart());
-}
-
-class IMCSmart extends StatelessWidget {
-  const IMCSmart({super.key});
-
-  // This widget is the root of your application.
-  @override
-  Widget build(BuildContext context) {
-    return MaterialApp(
-      debugShowCheckedModeBanner: false,
-      theme: theme,
-      home: HomePage(),
-    );
-  }
-}

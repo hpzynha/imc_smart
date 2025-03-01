@@ -1,17 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:imc_smart/presentation/pages/home_page.dart';
-
-final theme = ThemeData(
-  useMaterial3: true,
-  colorScheme: ColorScheme.fromSeed(
-    brightness: Brightness.light,
-    seedColor: const Color(0xFFFF1B6B),
-    primary: const Color(0xFFFF1B6B),
-    secondary: const Color(0xFFFF1B6B),
-  ),
-  textTheme: GoogleFonts.latoTextTheme(),
-);
+import 'package:imc_smart/theme/style.dart';
 
 void main() {
   runApp(const IMCSmart());
@@ -25,7 +15,7 @@ class IMCSmart extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      theme: theme,
+      theme: appTheme,
       home: HomePage(),
     );
   }
