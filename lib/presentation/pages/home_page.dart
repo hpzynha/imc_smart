@@ -2,8 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:imc_smart/presentation/widgets/gradient_text.dart';
 import 'package:imc_smart/presentation/widgets/main_drawer.dart';
 import 'package:imc_smart/presentation/widgets/smart_card.dart';
+import 'package:imc_smart/providers/imc_provider.dart';
 import 'package:imc_smart/theme/colors.dart';
 import 'package:imc_smart/theme/style.dart';
+import 'package:provider/provider.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
@@ -15,22 +17,6 @@ class HomePage extends StatefulWidget {
 class _HomePageState extends State<HomePage> {
   final TextEditingController weightController = TextEditingController();
   final TextEditingController heightController = TextEditingController();
-  double? _bmiResult;
-  bool _showResults = false;
-
-  void _calculateBMI() {
-    final double? weight = double.tryParse(weightController.text);
-    final double? height = double.tryParse(heightController.text);
-
-    if (weight == null || height == null || height == 0) {
-      return;
-    }
-
-    setState(() {
-      _bmiResult = weight / ((height / 100) * (height / 100));
-      _showResults = true;
-    });
-  }
 
   @override
   Widget build(BuildContext context) {
@@ -52,13 +38,23 @@ class _HomePageState extends State<HomePage> {
             SmartCard(
               weightController: weightController,
               heightController: heightController,
-              onCalculate: _calculateBMI,
+              onCalculate: () {
+                context
+                    .read<ImcProvider>()
+                    .calculateBMI(weightController.text, heightController.text);
+              },
             ),
             SizedBox(height: 20),
-            if (_showResults)
-              SmartCardResults(
-                bmiResult: _bmiResult,
-              )
+            Consumer<ImcProvider>(
+              builder: (context, provider, child) {
+                if (provider.showResults) {
+                  return SmartCardResults(
+                    bmiResult: provider.bmiResult,
+                  );
+                }
+                return SizedBox.shrink();
+              },
+            )
           ],
         ),
       ),
