@@ -44,19 +44,21 @@ class _HomePageState extends State<HomePage> {
             style: AppTextStyles.title),
       ),
       drawer: MainDrawer(),
-      body: Column(
-        children: [
-          SmartCard(
-            weightController: weightController,
-            heightController: heightController,
-            onCalculate: _calculateBMI,
-          ),
-          SizedBox(height: 20),
-          if (_showResults)
-            SmartCardResults(
-              bmiResult: _bmiResult,
-            )
-        ],
+      body: SingleChildScrollView(
+        child: Column(
+          children: [
+            SmartCard(
+              weightController: weightController,
+              heightController: heightController,
+              onCalculate: _calculateBMI,
+            ),
+            SizedBox(height: 20),
+            if (_showResults)
+              SmartCardResults(
+                bmiResult: _bmiResult,
+              )
+          ],
+        ),
       ),
     );
   }

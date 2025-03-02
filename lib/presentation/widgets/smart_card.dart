@@ -89,40 +89,47 @@ class SmartCardResults extends StatelessWidget {
           ),
           child: Padding(
             padding: EdgeInsets.all(20),
-            child: SingleChildScrollView(
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.center,
-                children: [
-                  Text(
-                    'Seu Resultado',
-                    style: AppTextStyles.title,
-                  ),
-                  SizedBox(
-                    height: 20,
-                  ),
-                  Stack(
-                    alignment: Alignment.center,
-                    children: [
-                      Container(
-                        width: 120,
-                        height: 120,
-                        decoration: BoxDecoration(
-                          shape: BoxShape.circle,
-                          gradient: AppColors.buttonGradient,
+            child: ConstrainedBox(
+              constraints: BoxConstraints(
+                maxHeight: MediaQuery.of(context).size.height *
+                    0.7, // Changed from minHeight to maxHeight
+              ),
+              child: SingleChildScrollView(
+                child: Column(
+                  mainAxisSize: MainAxisSize.min, // Add this line
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  children: [
+                    Text(
+                      'Seu Resultado',
+                      style: AppTextStyles.title,
+                    ),
+                    SizedBox(
+                      height: 20,
+                    ),
+                    Stack(
+                      alignment: Alignment.center,
+                      children: [
+                        Container(
+                          width: 120,
+                          height: 120,
+                          decoration: BoxDecoration(
+                            shape: BoxShape.circle,
+                            gradient: AppColors.buttonGradient,
+                          ),
                         ),
-                      ),
-                      Text(
-                        '${bmiResult?.toStringAsFixed(2) ?? 00.00}',
-                        style: AppTextStyles.results,
-                      ),
-                    ],
-                  ),
-                  SizedBox(
-                    height: 5,
-                  ),
-                  Divider(),
-                  ImcCategories(),
-                ],
+                        Text(
+                          '${bmiResult?.toStringAsFixed(2) ?? 00.00}',
+                          style: AppTextStyles.results,
+                        ),
+                      ],
+                    ),
+                    SizedBox(
+                      height: 5,
+                    ),
+                    Divider(),
+                    ImcCategories(),
+                  ],
+                ),
               ),
             ),
           ),
