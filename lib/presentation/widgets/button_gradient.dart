@@ -4,9 +4,10 @@ import 'package:imc_smart/theme/style.dart';
 
 class ButtonGradient extends StatefulWidget {
   final String title;
-  final void Function() onPressed;
+  final VoidCallback onCalculate;
+
   const ButtonGradient(
-      {super.key, required this.onPressed, required this.title});
+      {super.key, required this.title, required this.onCalculate});
 
   @override
   State<ButtonGradient> createState() => _ButtonGradientState();
@@ -28,7 +29,7 @@ class _ButtonGradientState extends State<ButtonGradient> {
           borderRadius: BorderRadius.circular(20),
         ),
         child: ElevatedButton(
-          onPressed: widget.onPressed,
+          onPressed: widget.onCalculate,
           style: ElevatedButton.styleFrom(
             padding: EdgeInsets.all(15),
             backgroundColor: Colors.transparent,

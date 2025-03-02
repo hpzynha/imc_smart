@@ -9,6 +9,12 @@ class AppTextStyles {
     color: AppColors.textBlack,
   );
 
+  static final TextStyle subTitle = GoogleFonts.lato(
+    fontSize: 20,
+    fontWeight: FontWeight.bold,
+    color: AppColors.textBlack,
+  );
+
   static final TextStyle body = GoogleFonts.lato(
     fontSize: 16,
     fontWeight: FontWeight.w400,
@@ -18,6 +24,11 @@ class AppTextStyles {
   static final TextStyle button = GoogleFonts.lato(
     fontSize: 16,
     fontWeight: FontWeight.w600,
+    color: Colors.white,
+  );
+  static final TextStyle results = GoogleFonts.lato(
+    fontSize: 20,
+    fontWeight: FontWeight.bold,
     color: Colors.white,
   );
 }

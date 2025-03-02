@@ -16,6 +16,7 @@ class _HomePageState extends State<HomePage> {
   final TextEditingController weightController = TextEditingController();
   final TextEditingController heightController = TextEditingController();
   double? _bmiResult;
+  bool _showResults = false;
 
   void _calculateBMI() {
     final double? weight = double.tryParse(weightController.text);
@@ -27,7 +28,7 @@ class _HomePageState extends State<HomePage> {
 
     setState(() {
       _bmiResult = weight / ((height / 100) * (height / 100));
-      print(_bmiResult.toString());
+      _showResults = true;
     });
   }
 
@@ -48,22 +49,15 @@ class _HomePageState extends State<HomePage> {
           SmartCard(
             weightController: weightController,
             heightController: heightController,
-            onPressed: _calculateBMI,
+            onCalculate: _calculateBMI,
           ),
           SizedBox(height: 20),
+          if (_showResults)
+            SmartCardResults(
+              bmiResult: _bmiResult,
+            )
         ],
       ),
     );
   }
-}
-
-Widget _buildCalculator() {
-  return SingleChildScrollView(
-    padding: EdgeInsets.all(20),
-    child: Form(
-      child: Column(
-        children: [TextFormField()],
-      ),
-    ),
-  );
 }
