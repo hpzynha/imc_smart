@@ -32,10 +32,10 @@ class _SmartCardState extends State<SmartCard> {
             padding: EdgeInsets.all(20),
             child: SingleChildScrollView(
               child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
+                crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
                   Text(
-                    'Cálculo de IMC',
+                    'Calculadora de IMC',
                     style: AppTextStyles.title,
                   ),
                   SizedBox(
