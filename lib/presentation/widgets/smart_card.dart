@@ -6,10 +6,12 @@ import 'package:imc_smart/theme/style.dart';
 class SmartCard extends StatefulWidget {
   final TextEditingController weightController;
   final TextEditingController heightController;
+  final void Function() onPressed;
   const SmartCard(
       {super.key,
       required this.weightController,
-      required this.heightController});
+      required this.heightController,
+      required this.onPressed});
 
   @override
   State<SmartCard> createState() => _SmartCardState();
@@ -55,7 +57,7 @@ class _SmartCardState extends State<SmartCard> {
                     height: 20,
                   ),
                   ButtonGradient(
-                    onPressed: () {},
+                    onPressed: widget.onPressed,
                     title: 'Calcular',
                   ),
                 ],

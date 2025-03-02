@@ -17,6 +17,20 @@ class _HomePageState extends State<HomePage> {
   final TextEditingController heightController = TextEditingController();
   double? _bmiResult;
 
+  void _calculateBMI() {
+    final double? weight = double.tryParse(weightController.text);
+    final double? height = double.tryParse(heightController.text);
+
+    if (weight == null || height == null || height == 0) {
+      return;
+    }
+
+    setState(() {
+      _bmiResult = weight / ((height / 100) * (height / 100));
+      print(_bmiResult.toString());
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -34,6 +48,7 @@ class _HomePageState extends State<HomePage> {
           SmartCard(
             weightController: weightController,
             heightController: heightController,
+            onPressed: _calculateBMI,
           ),
           SizedBox(height: 20),
         ],
