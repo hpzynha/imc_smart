@@ -16,42 +16,42 @@ class ImcCategories extends StatelessWidget {
         SizedBox(
           height: 20,
         ),
-        _buildCategoryItem('Abaixo do peso', '< 18.5'),
-        _buildCategoryItem('Peso normal', '18.5 - 24.9'),
-        _buildCategoryItem('Sobrepeso', '25 - 29.9'),
-        _buildCategoryItem('Obesidade Grau I', '30 - 34.9'),
-        _buildCategoryItem('Obesidade Grau II', '35 - 39.9'),
-        _buildCategoryItem('Obesidade Grau III', '≥ 40'),
+        _buildCategoryItem('Abaixo do peso', '< 18.5', Colors.blue),
+        _buildCategoryItem('Peso normal', '18.5 - 24.9', Colors.green),
+        _buildCategoryItem('Sobrepeso', '25 - 29.9', Colors.orange),
+        _buildCategoryItem('Obesidade Grau I', '30 - 34.9', Colors.deepOrange),
+        _buildCategoryItem('Obesidade Grau II', '35 - 39.9', Colors.red),
+        _buildCategoryItem('Obesidade Grau III', '≥ 40', Colors.purple),
       ],
     );
   }
 }
 
-Widget _buildCategoryItem(String category, String range) {
+Widget _buildCategoryItem(String category, String range, Color color) {
   return Padding(
-    padding: EdgeInsets.symmetric(vertical: 5),
-    child: CheckboxListTile(
-      contentPadding: EdgeInsets.zero,
-      dense: true,
-      controlAffinity: ListTileControlAffinity.leading,
-      title: RichText(
-        text: TextSpan(style: AppTextStyles.body, children: [
-          TextSpan(
-            text: '$category',
-            style: AppTextStyles.body,
+      padding: EdgeInsets.symmetric(vertical: 5),
+      child: Row(
+        children: [
+          Container(
+            width: 16,
+            height: 16,
+            margin: EdgeInsets.only(top: 2, right: 8),
+            decoration: BoxDecoration(
+              color: color,
+              shape: BoxShape.circle,
+            ),
           ),
-          TextSpan(
-            text: range,
-            style: AppTextStyles.body,
+          Expanded(
+            child: RichText(
+              text: TextSpan(
+                style: AppTextStyles.body,
+                children: [
+                  TextSpan(text: category),
+                  TextSpan(text: ' ($range)', style: AppTextStyles.body),
+                ],
+              ),
+            ),
           ),
-        ]),
-      ),
-      value: false,
-      onChanged: null,
-      activeColor: Colors.blue,
-      checkboxShape: RoundedRectangleBorder(
-        borderRadius: BorderRadius.circular(4),
-      ),
-    ),
-  );
+        ],
+      ));
 }
