@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:imc_smart/presentation/pages/about_page.dart';
+import 'package:imc_smart/presentation/pages/how_it_works_page.dart';
 import 'package:imc_smart/theme/colors.dart';
 import 'package:imc_smart/theme/style.dart';
 
@@ -42,7 +44,10 @@ class _MainDrawerState extends State<MainDrawer> {
               'Como Funciona',
               style: AppTextStyles.subTitle,
             ),
-            onTap: () {},
+            onTap: () {
+              Navigator.push(context,
+                  MaterialPageRoute(builder: (context) => HowItWorksPage()));
+            },
           ),
           ListTile(
             leading: Icon(Icons.calculate_outlined, size: 30),
@@ -50,7 +55,10 @@ class _MainDrawerState extends State<MainDrawer> {
               'Sobre',
               style: AppTextStyles.subTitle,
             ),
-            onTap: () {},
+            onTap: () {
+              Navigator.push(context,
+                  MaterialPageRoute(builder: (context) => AboutPage()));
+            },
           ),
         ],
       ),
