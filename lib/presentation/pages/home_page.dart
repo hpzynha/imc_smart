@@ -38,6 +38,8 @@ class _HomePageState extends State<HomePage> {
       backgroundColor: Colors.white,
       appBar: AppBar(
         backgroundColor: Colors.white,
+        elevation: 0,
+        scrolledUnderElevation: 0,
         title: GradientText(
             text: 'IMC Smart',
             gradient: AppColors.buttonGradient,
