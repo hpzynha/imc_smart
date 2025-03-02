@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:imc_smart/theme/colors.dart';
+import 'package:imc_smart/theme/style.dart';
 
 class MainDrawer extends StatefulWidget {
   const MainDrawer({super.key});
@@ -21,14 +22,6 @@ class _MainDrawerState extends State<MainDrawer> {
             ),
             child: Row(
               children: [
-                Icon(
-                  Icons.scale,
-                  size: 48,
-                  color: Colors.white,
-                ),
-                SizedBox(
-                  width: 28,
-                ),
                 Text(
                   'IMC Smart!',
                   style: TextStyle(
@@ -41,13 +34,22 @@ class _MainDrawerState extends State<MainDrawer> {
             ),
           ),
           ListTile(
-            leading: Icon(Icons.calculate),
-            title: Text('O que é IMC?'),
+            leading: Icon(
+              Icons.info_outline,
+              size: 30,
+            ),
+            title: Text(
+              'Como Funciona',
+              style: AppTextStyles.subTitle,
+            ),
             onTap: () {},
           ),
           ListTile(
-            leading: Icon(Icons.calculate),
-            title: Text('Sobre'),
+            leading: Icon(Icons.calculate_outlined, size: 30),
+            title: Text(
+              'Sobre',
+              style: AppTextStyles.subTitle,
+            ),
             onTap: () {},
           ),
         ],
