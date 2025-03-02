@@ -5,8 +5,17 @@ import 'package:imc_smart/presentation/widgets/smart_card.dart';
 import 'package:imc_smart/theme/colors.dart';
 import 'package:imc_smart/theme/style.dart';
 
-class HomePage extends StatelessWidget {
+class HomePage extends StatefulWidget {
   const HomePage({super.key});
+
+  @override
+  State<HomePage> createState() => _HomePageState();
+}
+
+class _HomePageState extends State<HomePage> {
+  final TextEditingController weightController = TextEditingController();
+  final TextEditingController heightController = TextEditingController();
+  double? _bmiResult;
 
   @override
   Widget build(BuildContext context) {
@@ -22,7 +31,10 @@ class HomePage extends StatelessWidget {
       drawer: MainDrawer(),
       body: Column(
         children: [
-          SmartCard(),
+          SmartCard(
+            weightController: weightController,
+            heightController: heightController,
+          ),
           SizedBox(height: 20),
         ],
       ),

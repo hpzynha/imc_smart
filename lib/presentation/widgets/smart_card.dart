@@ -3,24 +3,23 @@ import 'package:imc_smart/presentation/widgets/button_gradient.dart';
 import 'package:imc_smart/presentation/widgets/input_field.dart';
 import 'package:imc_smart/theme/style.dart';
 
-import '../../theme/colors.dart';
-
 class SmartCard extends StatefulWidget {
-  const SmartCard({super.key});
+  final TextEditingController weightController;
+  final TextEditingController heightController;
+  const SmartCard(
+      {super.key,
+      required this.weightController,
+      required this.heightController});
 
   @override
   State<SmartCard> createState() => _SmartCardState();
 }
 
 class _SmartCardState extends State<SmartCard> {
-  final TextEditingController _weightController = TextEditingController();
-  final TextEditingController _heightController = TextEditingController();
-  double? _bmiResult;
-
   @override
   Widget build(BuildContext context) {
     return Center(
-      child: Container(
+      child: SizedBox(
         width: MediaQuery.of(context).size.width * 0.8,
         child: Card(
           color: Colors.white,
@@ -42,7 +41,7 @@ class _SmartCardState extends State<SmartCard> {
                     height: 20,
                   ),
                   buildInputField(
-                      controller: _weightController,
+                      controller: widget.weightController,
                       title: 'Peso (kg)',
                       example: 'Ex: 70'),
                   SizedBox(
@@ -51,7 +50,7 @@ class _SmartCardState extends State<SmartCard> {
                   buildInputField(
                       title: 'Altura (cm)',
                       example: 'Ex: 170',
-                      controller: _heightController),
+                      controller: widget.heightController),
                   SizedBox(
                     height: 20,
                   ),
