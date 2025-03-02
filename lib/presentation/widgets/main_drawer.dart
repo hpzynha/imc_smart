@@ -45,6 +45,7 @@ class _MainDrawerState extends State<MainDrawer> {
               style: AppTextStyles.subTitle,
             ),
             onTap: () {
+              Navigator.pop(context);
               Navigator.push(context,
                   MaterialPageRoute(builder: (context) => HowItWorksPage()));
             },
@@ -56,6 +57,7 @@ class _MainDrawerState extends State<MainDrawer> {
               style: AppTextStyles.subTitle,
             ),
             onTap: () {
+              Navigator.pop(context);
               Navigator.push(context,
                   MaterialPageRoute(builder: (context) => AboutPage()));
             },
