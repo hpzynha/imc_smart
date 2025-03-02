@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:imc_smart/presentation/widgets/gradient_text.dart';
 import 'package:imc_smart/theme/colors.dart';
 
 class MainDrawer extends StatefulWidget {

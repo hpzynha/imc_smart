@@ -1,7 +1,21 @@
 import 'package:flutter/material.dart';
+import 'package:imc_smart/presentation/widgets/button_gradient.dart';
+import 'package:imc_smart/presentation/widgets/input_field.dart';
+import 'package:imc_smart/theme/style.dart';
 
-class SmartCard extends StatelessWidget {
+import '../../theme/colors.dart';
+
+class SmartCard extends StatefulWidget {
   const SmartCard({super.key});
+
+  @override
+  State<SmartCard> createState() => _SmartCardState();
+}
+
+class _SmartCardState extends State<SmartCard> {
+  final TextEditingController _weightController = TextEditingController();
+  final TextEditingController _heightController = TextEditingController();
+  double? _bmiResult;
 
   @override
   Widget build(BuildContext context) {
@@ -20,16 +34,31 @@ class SmartCard extends StatelessWidget {
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  const Text(
+                  Text(
                     'Cálculo de IMC',
-                    style: TextStyle(
-                      fontSize: 24,
-                      fontWeight: FontWeight.bold,
-                    ),
+                    style: AppTextStyles.title,
                   ),
                   SizedBox(
                     height: 20,
-                  )
+                  ),
+                  buildInputField(
+                      controller: _weightController,
+                      title: 'Peso (kg)',
+                      example: 'Ex: 70'),
+                  SizedBox(
+                    height: 5,
+                  ),
+                  buildInputField(
+                      title: 'Altura (cm)',
+                      example: 'Ex: 170',
+                      controller: _heightController),
+                  SizedBox(
+                    height: 20,
+                  ),
+                  ButtonGradient(
+                    onPressed: () {},
+                    title: 'Calcular',
+                  ),
                 ],
               ),
             ),

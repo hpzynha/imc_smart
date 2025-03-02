@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
 import 'package:imc_smart/presentation/pages/home_page.dart';
 import 'package:imc_smart/theme/style.dart';
 

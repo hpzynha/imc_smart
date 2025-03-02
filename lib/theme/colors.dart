@@ -14,6 +14,7 @@ class AppColors {
 
   // Outras cores do tema
   static const Color textBlack = Color(0xFF000000); // Preto para texto
-  static const Color formFieldBackground =
-      Color(0xFFF5F5F5); // Cinza claro para campos
+  static const Color formFieldBackground = Color(0xFFffffff);
+  static const Color formFieldBorder =
+      Color(0XFFBEBFC5); // Cinza claro para campos
 }
