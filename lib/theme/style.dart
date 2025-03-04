@@ -31,6 +31,13 @@ class AppTextStyles {
     fontWeight: FontWeight.bold,
     color: Colors.white,
   );
+
+  static final TextStyle content = GoogleFonts.lato(
+    fontSize: 16,
+    fontWeight: FontWeight.w400,
+    color: AppColors.textBlack,
+    height: 1.5,
+  );
 }
 
 final ThemeData appTheme = ThemeData(
